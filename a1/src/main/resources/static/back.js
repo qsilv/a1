@@ -13,25 +13,40 @@ const questions = [
 
 
 let currentQuestionIndex = 0;
-let userAnswers = new Array(questions.length).fill(null);//array size of questions to store user answers
+let userAnswers = new Array(questions.length).fill(null);//array size of questions to store user answers filled with null
+let answersSubmitted = false;
 
 function showQuestion() {
     const question = questions[currentQuestionIndex];
-    document.getElementById('question').textContent = question.question; //set question
+    document.getElementById('question').textContent = question.question;
 
     const answersList = document.getElementById('answer-list');
-    answersList.innerHTML = ''; //clear everything
+    answersList.innerHTML = '';
 
-    question.answers.forEach((answer, index) => { //populate button with option for each option
+    question.answers.forEach((answer, index) => {
         const li = document.createElement('li');
         li.textContent = answer;
+        li.className = 'answer-choice';
         li.onclick = () => {
-            userAnswers[currentQuestionIndex] = answer;
-            highlightSelectedAnswer(index);
+            if (!answersSubmitted) {
+                userAnswers[currentQuestionIndex] = answer;
+                highlightSelectedAnswer(index);
+            }
         };
         answersList.appendChild(li);
+
+        // correct answer highlighting based on submission state
+        if (answersSubmitted) {
+            if (answer === question.correct) {
+                li.classList.add('correct-answer');
+            } else if (answer === userAnswers[currentQuestionIndex]) {
+                li.classList.add('wrong-answer');
+            }
+        }
     });
-    highlightExistingAnswer();
+    if(!answersSubmitted){
+    highlightExistingAnswer();}
+
 }
 
 function highlightSelectedAnswer(selectedIndex) { //when you select an answer it unhighlights all the other ones then highlights selects
@@ -71,6 +86,8 @@ function calculateScore() {
 
 
 document.getElementById('submit-answers').onclick = () => {
+    answersSubmitted = true;
+    showQuestion();
     const score = calculateScore();
     document.getElementById('score-display').textContent = `Your score is: ${score}`;
 };
