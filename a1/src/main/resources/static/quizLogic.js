@@ -18,7 +18,7 @@ let answersSubmitted = false;
 
 function showQuestion() {
     const question = questions[currentQuestionIndex];
-    document.getElementById('question').textContent = question.question;
+    document.getElementById('question').textContent = (currentQuestionIndex+1)+". "+question.question;
 
     const answersList = document.getElementById('answer-list');
     answersList.innerHTML = '';//clear all
@@ -89,7 +89,7 @@ document.getElementById('submit-answers').onclick = () => {
     answersSubmitted = true;
     showQuestion();//rerender with correct answers highlighted
     const score = calculateScore();
-    document.getElementById('score-display').textContent = `Your score is: ${score}`;
+    document.getElementById('score-display').textContent = `Your score is: ${score}/${questions.length}`;
 };
 
 document.getElementById('next-question').onclick = () => { //wont work unless answer put or submit pressed
