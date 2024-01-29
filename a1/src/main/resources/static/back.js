@@ -87,13 +87,13 @@ function calculateScore() {
 
 document.getElementById('submit-answers').onclick = () => {
     answersSubmitted = true;
-    showQuestion();
+    showQuestion();//rerender with correct answers highlighted
     const score = calculateScore();
     document.getElementById('score-display').textContent = `Your score is: ${score}`;
 };
 
 document.getElementById('next-question').onclick = () => {
-    if ((currentQuestionIndex < questions.length - 1)&&userAnswers[currentQuestionIndex]!=null){
+    if ((currentQuestionIndex < questions.length - 1)&&((userAnswers[currentQuestionIndex]!=null)||answersSubmitted)){
         currentQuestionIndex++;
         showQuestion();
     }
