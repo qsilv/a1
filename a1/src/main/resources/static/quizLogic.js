@@ -84,9 +84,23 @@ function calculateScore() {
     return score; 
 }
 
+function displayCorrectAnswers() {
+    const correctAnswersList = document.getElementById('correct-answers-list');
+    correctAnswersList.innerHTML = ''; // clear previous results
+
+    questions.forEach((question, index) => {
+        const li = document.createElement('li');
+        li.innerHTML = `<strong>Question ${index + 1}:</strong> ${question.question}<br><strong>Answer:</strong> ${question.correct} <br><br>`;
+        correctAnswersList.appendChild(li);
+    });
+}
+
 
 document.getElementById('submit-answers').onclick = () => {
     answersSubmitted = true;
+    displayCorrectAnswers();
+    document.getElementById('results-container').style.display = 'block'; // show the results container
+
     showQuestion();//rerender with correct answers highlighted
     const score = calculateScore();
     document.getElementById('score-display').textContent = `Your score is: ${score}/${questions.length}`;
