@@ -21,9 +21,9 @@ function showQuestion() {
     document.getElementById('question').textContent = question.question;
 
     const answersList = document.getElementById('answer-list');
-    answersList.innerHTML = '';
+    answersList.innerHTML = '';//clear all
 
-    question.answers.forEach((answer, index) => {
+    question.answers.forEach((answer, index) => { //for each answer in answers make a button for it
         const li = document.createElement('li');
         li.textContent = answer;
         li.className = 'answer-choice';

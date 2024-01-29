@@ -66,9 +66,6 @@ button:hover {
     transition: background-color 0.3s;
 }
 
-#answer-list li:hover {
-    background-color: #d0d0d0;
-}
 
 #answer-list li.selected {
     background-color: #d0d0d0;
