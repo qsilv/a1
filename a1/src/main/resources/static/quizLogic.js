@@ -92,7 +92,7 @@ document.getElementById('submit-answers').onclick = () => {
     document.getElementById('score-display').textContent = `Your score is: ${score}`;
 };
 
-document.getElementById('next-question').onclick = () => {
+document.getElementById('next-question').onclick = () => { //wont work unless answer put or submit pressed
     if ((currentQuestionIndex < questions.length - 1)&&((userAnswers[currentQuestionIndex]!=null)||answersSubmitted)){
         currentQuestionIndex++;
         showQuestion();
