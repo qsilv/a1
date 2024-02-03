@@ -90,7 +90,12 @@ function displayCorrectAnswers() {
 
     questions.forEach((question, index) => {
         const li = document.createElement('li');
-        li.innerHTML = `<strong>Question ${index + 1}:</strong> ${question.question}<br><strong>Answer:</strong> ${question.correct} <br><br>`;
+        if(userAnswers[index]!=null){
+        li.innerHTML = `<strong>Question ${index + 1}:</strong> ${question.question}<br><strong>Answer:</strong> ${question.correct} <strong>  Your Answer:</strong> ${userAnswers[index]} <br><br>`;
+        }
+        else{
+            li.innerHTML = `<strong>Question ${index + 1}:</strong> ${question.question}<br><strong>Answer:</strong> ${question.correct} <strong>  Your Answer:</strong> None <br><br>`;
+        }
         correctAnswersList.appendChild(li);
     });
 }
