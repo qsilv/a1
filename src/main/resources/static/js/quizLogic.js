@@ -3,8 +3,12 @@ const questions = [
     { question: "What is the capital of France?", answers: ["Paris", "London", "Rome", "Berlin"], correct: "Paris" },
     { question: "What is the largest planet in our solar system?", answers: ["Earth", "Mars", "Jupiter", "Saturn"], correct: "Jupiter" },
     { question: "Who wrote 'Romeo and Juliet'?", answers: ["William Shakespeare", "Charles Dickens", "Jane Austen", "Ernest Hemingway"], correct: "William Shakespeare" },
-    { question: "What is the boiling point of water?", answers: ["90°C", "100°C", "120°C", "80°C"], correct: "100°C" }
-  
+    { question: "What is the boiling point of water?", answers: ["90°C", "100°C", "120°C", "80°C"], correct: "100°C" },
+    { question: "Which element has the chemical symbol 'O'?", answers: ["Gold", "Oxygen", "Silver", "Iron"], correct: "Oxygen" },
+    { question: "How many continents are there on Earth?", answers: ["5", "6", "7", "8"], correct: "7" },
+    { question: "Who painted the Mona Lisa?", answers: ["Vincent van Gogh", "Pablo Picasso", "Leonardo da Vinci", "Michelangelo"], correct: "Leonardo da Vinci" },
+    { question: "What is the largest mammal in the world?", answers: ["African Elephant", "Blue Whale", "Giraffe", "Great White Shark"], correct: "Blue Whale" },
+    { question: "What is the main ingredient in guacamole?", answers: ["Tomato", "Onion", "Avocado", "Pepper"], correct: "Avocado" }
 ];
 
 
